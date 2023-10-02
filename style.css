@@ -1,0 +1,120 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+   /* overflow:hidden; */
+    
+}
+body{
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    border:2px solid blue;
+    align-items:center;
+    position:relative;
+}
+body::after{
+    content:"";
+
+    display:block;
+    position:absolute;
+    width:100%;   
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center; 
+    background:url(./images/image-rules-bonus.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    left: 0;
+}
+.container{
+    max-width:700px;
+    width:90%;
+    margin:auto;
+}
+
+.score-section{
+    display:flex;
+    justify-content:space-between;
+    padding:0.5em;
+    margin:1em 0;
+    border:2px solid blue;
+    border-radius:10px;
+}
+.score-card{
+    width: 155px;
+    height: 112px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    border:1px solid red;
+    border-radius:5px;
+    
+}
+.game-sec{
+    border:2px solid red;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    padding:4em;
+}
+.scissor,.rock,.lizard,.spock,.paper{
+    position:absolute;
+    border:2px solid yellow;
+    height: 150px;
+    width: 150px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+
+}
+
+.scissor{
+    top:0;
+}
+.rock{
+    transform: translateX(77px) translateY(113px);
+}
+.paper{
+    transform: translateX(132px) translateY(-35px);
+}
+.lizard{
+    transform: translateX(-83px) translateY(117px);
+}
+.spock{
+    transform: translateX(-133px) translateY(-35px);
+}
+.rule-sec{
+    display:flex;
+    justify-content:flex-end;
+    width:100%;
+}
+.rule-sec .rule{
+    border:2px solid blue;
+    padding:0.5em 2em;
+    border-radius:5px;
+    text-transform:uppercase;
+    /* margin:-10px 1.5em; */
+}
+
+@media(max-width:1000px){
+    .rule-sec{
+        justify-content:center;
+        margin:1.5em;
+    }
+}
+
+@media(max-width:482px){
+    .scissor,.rock,.lizard,.spock,.paper{
+        height: 100px;
+        width: 90px;
+    
+    }
+    .container{
+        width:100%;
+    }
+}
