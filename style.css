@@ -3,7 +3,16 @@
     margin:0;
     box-sizing:border-box;
    /* overflow:hidden; */
-    
+  
+   
+}
+:root{
+    --pseudo-opacity:0;
+    --pseudo-translate:translate(2px, -100%);
+    --pseudo-translate-body:translate(1px,-100%);
+    --pseudo-translate-sm:translate(1px,-100%);
+
+
 }
 body{
     display:flex;
@@ -15,19 +24,14 @@ body{
 }
 body::after{
     content:"";
-
     display:block;
     position:absolute;
     width:100%;   
     height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center; 
-    background:url(./images/image-rules-bonus.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    top: 0;
-    left: 0;
+    background:rgba(0,0,0,0.623);
+    opacity:var(--pseudo-opacity);
+    z-index:2;
+    transform:var(--pseudo-translate-body);
 }
 .container{
     max-width:700px;
@@ -53,6 +57,7 @@ body::after{
     border-radius:5px;
     
 }
+/* #################################################### Game section ############################### */
 .game-sec{
     border:2px solid red;
     display:flex;
@@ -88,23 +93,58 @@ body::after{
 .spock{
     transform: translateX(-133px) translateY(-35px);
 }
+
+/* ########################################## rules section ################################# */
 .rule-sec{
     display:flex;
     justify-content:flex-end;
     width:100%;
+    cursor:pointer;
 }
 .rule-sec .rule{
     border:2px solid blue;
     padding:0.5em 2em;
     border-radius:5px;
     text-transform:uppercase;
-    /* margin:-10px 1.5em; */
 }
+
+/* #################################### overlay section ############################## */
+.overlay-sec{
+    max-width:400px;
+    width:100%;
+    height:500px;
+    background:white;
+    color:black;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:1.5em;
+    border-radius:10px;
+    border:2px solid black;
+    position:absolute;
+   transform:var(--pseudo-translate);
+    z-index:5;
+    opacity:1;
+}
+.overlay-header{
+display:flex;
+justify-content:space-between;
+margin-bottom:3em;
+width:100%;
+}
+.overlay-header h2{
+    text-transform:uppercase;
+}
+.close{
+    cursor:pointer;
+}
+/* #################################################### media queries ############################ */
 
 @media(max-width:1000px){
     .rule-sec{
         justify-content:center;
-        margin:1.5em;
+        margin-top:0em;
+        margin-bottom:0.5em;
     }
 }
 
@@ -117,4 +157,30 @@ body::after{
     .container{
         width:100%;
     }
+}
+@media(max-width:482px){
+    .overlay-sec{
+        height:100%;
+        justify-content:center;
+        align-items:center;
+        transform:var(--pseudo-translate-sm);
+
+        }
+        .overlay-header{
+            height:100%;
+            width:10%;
+            flex-direction:column;
+            justify-content:space-around;
+            position:absolute;
+            text-align:center;
+        } 
+        .overlay-header h2{
+            position:relative;
+            top: -35px;
+            right: 15px;
+        }
+     .close{
+        position: relative;
+        top: 85px;
+     }
 }
